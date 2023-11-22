@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Moviestack</title>
+    <link rel="shortcut icon" href="./assets/images/Moviestack_favicon.png" type="image/x-icon">
+
+</head>
+
+<body class="w-full min-h-screen flex flex-col">
+    <header class="bg-ms-purple flex flex-col md:flex-row md:justify-between items-center px-10 ">
+        <a class="flex justify-center items-center h-20 w-full md:w-96 py-2" href="./index.html">
+            <img class="h-full w-16 rounded-full bg-black object-cover object-center hidden md:flex"
+                src="./assets/images/Moviestack_isotipo.png" alt="isotype" id="isotype">
+            <img class="h-full w-3/4 object-cover object-center" src="./assets/images/Moviestack_logotipo2.png"
+                alt="logo" id="logo">
+        </a>
+        <nav class="flex items-center gap-6 text-white font-bold text-xl mb-4 md:mb-0">
+            <a class="hover:bg-ms-gray hover:text-black bg-black p-2 rounded-xl" href="./index.html">Home</a>
+            <a class="hover:bg-ms-gray hover:text-black p-2 rounded-xl" href="./assets/pages/movies.html">Movies</a>
+            <a class="hover:bg-ms-gray hover:text-black p-2 rounded-xl" href="./assets/pages/favs.html">Favs</a>
+        </nav>
+    </header>
+    <main class="bg-ms-gray flex flex-col items-center justify-center grow gap-16 py-10 px-4 lg:px-28 text-center">
+
+        <a class="w-full h-auto lg:h-96 flex justify-center" href="./index.html">
+            <img class="h-full " src="./assets/images/banner.png" alt="banner" id="bannerImg">
+        </a>
+        <p>
+            Welcome to the Moviestack website, where you can dive deep into the world of cinema. Discover candid,
+            well-crafted reviews, insightful analyses, and expert ratings to help you make informed choices for your
+            next cinematic experience. Whether you're a film enthusiast or simply looking for your next movie night
+            pick, we've got you covered with our comprehensive and passionate approach to movie reviews.
+        </p>
+        <div class="callToAction flex flex-col lg:flex-row gap-6 items-center justify-center w-full">
+            <a class="callToActionButton lg:h-96 lg:w-96 flex justify-center items-center"
+                href="./assets/pages/movies.html">
+                <img class="lg:h-96 lg:w-96 h-full" src="./assets/images/Movies.png" alt="Movies">
+            </a>
+            <a class="callToActionButton lg:h-96 lg:w-96 flex justify-center items-center" href="#">
+                <img class="lg:h-96 lg:w-96 h-full" src="./assets/images/Favs.png" alt="Favs">
+            </a>
+        </div>
+    </main>
+    <footer class="bg-ms-purple text-center text-white">
+        <h4>MINDHUB - Cohort FS052 JAVA - Salomón Gutiérrez</h4>
+    </footer>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="tailwind.config.extension.js"></script>
+    <script type="module" src="tailwind.config.js"></script>
+    <script src="./home.js"></script>
+</body>
+
+</html>

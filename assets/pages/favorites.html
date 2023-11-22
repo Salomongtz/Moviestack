@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorites - Moviestack</title>
+    <link rel="shortcut icon" href="../images/Moviestack_favicon.png" type="image/x-icon">
+
+</head>
+
+<body class="w-full min-h-screen flex flex-col">
+    <header class="bg-ms-purple flex flex-col md:flex-row md:justify-between items-center px-10 ">
+        <a class="flex justify-center items-center h-20 w-full md:w-96 py-2" href="./index.html">
+            <img class="h-full w-16 rounded-full bg-black object-cover object-center hidden md:flex"
+                src="../images/Moviestack_isotipo.png" alt="isotype" id="isotype">
+            <img class="h-full w-3/4 object-cover object-center" src="../images/Moviestack_logotipo2.png"
+                alt="logo" id="logo">
+        </a>
+        <nav class="flex items-center gap-6 text-white font-bold text-xl mb-4 md:mb-0">
+            <a class="hover:bg-ms-gray hover:text-black  p-2 rounded-xl" href="../../index.html">Home</a>
+            <a class="hover:bg-ms-gray hover:text-black p-2 rounded-xl" href="../pages/movies.html">Movies</a>
+            <a class="hover:bg-ms-gray bg-black hover:text-black p-2 rounded-xl" href="../pages/favorites.html">Favs</a>
+        </nav>
+    </header>
+    <main class="bg-ms-gray flex flex-col items-center justify-center grow gap-16 py-10 px-4 lg:px-28 text-center">
+        <div id="app"></div>
+    </main>
+    <footer class="bg-ms-purple text-center text-white">
+        <h4>MINDHUB - Cohort FS052 JAVA - Salomón Gutiérrez</h4>
+    </footer>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="../../tailwind.config.extension.js"></script>
+    <script type="module" src="../../tailwind.config.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="../../favorites.js"></script>
+</body>
+
+</html>

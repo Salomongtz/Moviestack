@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies - Moviestack</title>
+    <link rel="shortcut icon" href="../images/Moviestack_favicon.png" type="image/x-icon">
+</head>
+
+<body class="w-full min-h-screen flex flex-col">
+    <header class="bg-ms-purple flex flex-col md:flex-row md:justify-between items-center px-10 ">
+        <a class="flex justify-center items-center h-20 w-full md:w-96 py-2" href="./index.html">
+            <img class="h-full w-16 rounded-full bg-black object-cover object-center hidden md:flex"
+                src="../images/Moviestack_isotipo.png" alt="isotype" id="isotype">
+            <img class="h-full w-3/4 object-cover object-center" src="../images/Moviestack_logotipo2.png" alt="logo"
+                id="logo">
+        </a>
+        <nav class="flex items-center gap-6 text-white font-bold text-xl mb-4 md:mb-0">
+            <a class="hover:bg-ms-gray hover:text-black  p-2 rounded-xl" href="../../index.html">Home</a>
+            <a class="hover:bg-ms-gray bg-black hover:text-black p-2 rounded-xl" href="../pages/movies.html">Movies</a>
+            <a class="hover:bg-ms-gray hover:text-black p-2 rounded-xl" href="../pages/favorites.html">Favs</a>
+        </nav>
+    </header>
+    <main class="bg-ms-gray flex flex-col items-center justify-center grow py-10 px-4 lg:px-28 text-center">
+        <div class="flex flex-col gap-36" id="app">
+
+            <div class="cards flex flex-wrap gap-6">
+                <template v-if="movies.length > 0" v-for="movie of movies">
+                    <!-- <article
+                        class="art hover:visible md:hover:h-auto md:h-96 w-64 p-4 text-ellipsis card bg-black text-white flex flex-col rounded-2xl">
+                        <img class="rounded-md" v-bind:src="'https://moviestack.onrender.com/static/' + movie.image"
+                            alt="image">
+                        <svg data-id="{{movie.id}}" fill="${color}"
+                            class="botoncito p-1.5 bg-gray-300 absolute  hover:visible hover:bg-gray-400 font-bold h-8 w-8 rounded-full inline-flex justify-center items-center favbtn"
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path data-id="{{movie.id}}"
+                                d="M12 4.435c-1.989-5.399-12-4.597-12 3.568 0 4.068 3.06 9.481 12 14.997 8.94-5.516 12-10.929 12-14.997 0-8.118-10-8.999-12-3.568z" />
+                        </svg>
+                        <h3 class="font-bold text-xl">{{movie.title}}</h3>
+                        <h4 class="italic">{{movie.tagline}}</h4>
+                        <a class="p-2 bg-black text-white text-center font-bold"
+                            href="./details.html?id={{movie.id}}">Details</a>
+                        <p class="md:line-clamp-4 text-left hover:block">{{movie.overview}}</p>
+                    </article> -->
+                    <div class="max-w-sm lg:w-1/4 bg-white rounded-lg overflow-hidden shadow-lg mx-auto">
+                        <img class="w-full" v-bind:src="'https://moviestack.onrender.com/static/' + movie.image"
+                            v-bind:alt="'Image'+movie.title" />
+                        <div class="px-6 py-4">
+                            <h3 class="font-bold text-xl mb-2 leading-normal">{{movie.title}}</h3>
+                            <p class="text-grey-darker text-base leading-normal md:line-clamp-4">{{movie.overview}}</p>
+                        </div>
+                        <div class="px-6 py-4 flex flex-wrap">
+                            <template v-if="movie.genres.length > 0" v-for="genre of movie.genres">
+                                <span
+                                    class="inline bg-ms-purple rounded-full px-3 py-1 text-white text-sm font-semibold text-grey-darker mr-2 mb-1">
+                                    #{{genre.toLowerCase()}}
+                                </span>
+                            </template>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-ms-purple text-center text-white">
+        <h4>MINDHUB - Cohort FS052 JAVA - Salomón Gutiérrez</h4>
+    </footer>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="../../tailwind.config.extension.js"></script>
+    <script type="module" src="../../tailwind.config.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="../../movies.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,4 @@
+.art:hover .botoncito {
+    visibility: visible;
+    cursor: pointer;
+}
