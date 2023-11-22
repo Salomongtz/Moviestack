@@ -7,6 +7,7 @@ const app = createApp({
     data() {
         return {
             movies: [],
+            favorites: [],
             filtered: [],
             genres: [],
             search: "",
@@ -18,17 +19,22 @@ const app = createApp({
             .then(response => response.json())
             .then(({ movies }) => {
                 this.movies = movies
+                this.favorites = JSON.parse(localStorage.getItem("favorites")) || []
                 this.genres = [...new Set(movies.map(movie => movie.genres).flat())]
                 this.filtered = this.movies
-                console.log(this.movies);
-                console.log(this.genres);
             })
             .catch(error => console.error(error))
     },
     methods: {
+        addFavorite(movieId) {
+            this.favorites.push(movieId)
+            localStorage.setItem("favorites", JSON.stringify(this.favorites))
+        }, removeFavorite(movieId) {
+            this.favorites = this.favorites.filter(movie => movie != movieId)
+            localStorage.setItem("favorites", JSON.stringify(this.favorites))
+        },
         filter() {
             this.filtered = this.movies.filter(movie => movie.title.toLowerCase().includes(this.search.toLowerCase()) && (this.genre == "all" || movie.genres.includes(this.genre)))
-            console.log(this.filtered);
         }
     },
     // computed:{

@@ -14,8 +14,8 @@
         <a class="flex justify-center items-center h-20 w-full md:w-96 py-2" href="./index.html">
             <img class="h-full w-16 rounded-full bg-black object-cover object-center hidden md:flex"
                 src="../images/Moviestack_isotipo.png" alt="isotype" id="isotype">
-            <img class="h-full w-3/4 object-cover object-center" src="../images/Moviestack_logotipo2.png"
-                alt="logo" id="logo">
+            <img class="h-full w-3/4 object-cover object-center" src="../images/Moviestack_logotipo2.png" alt="logo"
+                id="logo">
         </a>
         <nav class="flex items-center gap-6 text-white font-bold text-xl mb-4 md:mb-0">
             <a class="hover:bg-ms-gray hover:text-black  p-2 rounded-xl" href="../../index.html">Home</a>
@@ -24,7 +24,44 @@
         </nav>
     </header>
     <main class="bg-ms-gray flex flex-col items-center justify-center grow gap-16 py-10 px-4 lg:px-28 text-center">
-        <div id="app"></div>
+        <div class="flex flex-col gap-6" id="app">
+            <h1 class="font-bold text-6xl text-center">FAVORITES</h1>
+            <div class="cards flex flex-wrap gap-6">
+                <template v-if="filtered.length > 0" v-for="movie of filtered">
+
+                    <div class="max-w-sm lg:w-1/4 relative bg-white rounded-lg overflow-hidden shadow-lg mx-auto">
+                        <img class="w-full" v-bind:src="'https://moviestack.onrender.com/static/' + movie.image"
+                            v-bind:alt="'Image'+movie.title" />
+                        <svg fill="red" v-on:click="favorites.includes(movie.id) ? removeFavorite(movie.id) : addFavorite(movie.id)"
+                            class="botoncito p-1.5 bg-gray-300  absolute left-1 top-2  hover:bg-gray-400 font-bold h-8 w-8 rounded-full inline-flex justify-center items-center favbtn"
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path data-id="${movie.id}"
+                                d="M12 4.435c-1.989-5.399-12-4.597-12 3.568 0 4.068 3.06 9.481 12 14.997 8.94-5.516 12-10.929 12-14.997 0-8.118-10-8.999-12-3.568z" />
+                        </svg>
+                        <div class="px-6 py-4">
+                            <h3 class="font-bold text-xl mb-2 leading-normal">{{movie.title}}</h3>
+                            <p class="text-grey-darker text-base leading-normal md:line-clamp-4">{{movie.overview}}</p>
+                        </div>
+                        <a class="bg-ms-purple px-4 py-2 text-white rounded-full"
+                            v-bind:href="'../pages/details.html?id=' + movie.id">Keep reading</a>
+                        <div class="px-6 py-4 flex flex-wrap">
+                            <template v-if="movie.genres.length > 0" v-for="genre of movie.genres">
+                                <span
+                                    class="inline bg-ms-purple rounded-full px-3 py-1 text-white text-sm font-semibold text-grey-darker mr-2 mb-1">
+                                    #{{genre.toLowerCase()}}
+                                </span>
+                            </template>
+                        </div>
+                    </div>
+
+                </template>
+                <template v-else>
+                    <h2 class="text-3xl text-center">
+                        No movies found.
+                    </h2>
+                </template>
+
+            </div>
     </main>
     <footer class="bg-ms-purple text-center text-white">
         <h4>MINDHUB - Cohort FS052 JAVA - Salomón Gutiérrez</h4>
