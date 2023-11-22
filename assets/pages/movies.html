@@ -34,7 +34,7 @@
                                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                         </svg>
                         <input class="bg-gray-100 outline-none" type="text" placeholder="Search by name"
-                            v-model="search"/>
+                            v-model="search" />
                     </div>
                     <select class="outline-none flex py-3 px-4 rounded-lg text-gray-500 font-semibold cursor-pointer"
                         v-model="genre" v-on:change="filter">
@@ -49,7 +49,7 @@
                     </select>
                     <div class="">
                         <button
-                            class="select-none bg-gray-800 py-3 px-5 text-white font-semibold rounded-lg hover:shadow-lg transition duration-3000 cursor-pointer"
+                            class="select-none bg-ms-purple py-3 px-5 text-white font-semibold rounded-lg hover:shadow-lg transition duration-3000 cursor-pointer"
                             v-on:click="filter">Search</button>
                     </div>
                 </div>
@@ -57,7 +57,32 @@
 
             <div class="cards flex flex-wrap gap-6">
                 <template v-if="filtered.length > 0" v-for="movie of filtered">
-                    <!-- <article
+
+                    <div class="max-w-sm lg:w-1/4 bg-white rounded-lg overflow-hidden shadow-lg mx-auto">
+                        <img class="w-full" v-bind:src="'https://moviestack.onrender.com/static/' + movie.image"
+                            v-bind:alt="'Image'+movie.title" />
+                        <div class="px-6 py-4">
+                            <h3 class="font-bold text-xl mb-2 leading-normal">{{movie.title}}</h3>
+                            <p class="text-grey-darker text-base leading-normal md:line-clamp-4">{{movie.overview}}</p>
+                        </div>
+                        <a class="bg-ms-purple px-4 py-2 text-white rounded-full" v-bind:href="'../pages/details.html?id=' + movie.id">Keep reading</a>
+                        <div class="px-6 py-4 flex flex-wrap">
+                            <template v-if="movie.genres.length > 0" v-for="genre of movie.genres">
+                                <span
+                                    class="inline bg-ms-purple rounded-full px-3 py-1 text-white text-sm font-semibold text-grey-darker mr-2 mb-1">
+                                    #{{genre.toLowerCase()}}
+                                </span>
+                            </template>
+                        </div>
+                    </div>
+
+                </template>
+                <template v-else>
+                    <h2 class="text-3xl text-center">
+                        No movies found.
+                    </h2>
+                </template>
+                <!-- <article
                         class="art hover:visible md:hover:h-auto md:h-96 w-64 p-4 text-ellipsis card bg-black text-white flex flex-col rounded-2xl">
                         <img class="rounded-md" v-bind:src="'https://moviestack.onrender.com/static/' + movie.image"
                             alt="image">
@@ -73,23 +98,6 @@
                             href="./details.html?id={{movie.id}}">Details</a>
                         <p class="md:line-clamp-4 text-left hover:block">{{movie.overview}}</p>
                     </article> -->
-                    <div class="max-w-sm lg:w-1/4 bg-white rounded-lg overflow-hidden shadow-lg mx-auto">
-                        <img class="w-full" v-bind:src="'https://moviestack.onrender.com/static/' + movie.image"
-                            v-bind:alt="'Image'+movie.title" />
-                        <div class="px-6 py-4">
-                            <h3 class="font-bold text-xl mb-2 leading-normal">{{movie.title}}</h3>
-                            <p class="text-grey-darker text-base leading-normal md:line-clamp-4">{{movie.overview}}</p>
-                        </div>
-                        <div class="px-6 py-4 flex flex-wrap">
-                            <template v-if="movie.genres.length > 0" v-for="genre of movie.genres">
-                                <span
-                                    class="inline bg-ms-purple rounded-full px-3 py-1 text-white text-sm font-semibold text-grey-darker mr-2 mb-1">
-                                    #{{genre.toLowerCase()}}
-                                </span>
-                            </template>
-                        </div>
-                    </div>
-                </template>
             </div>
         </div>
     </main>
