@@ -7,7 +7,10 @@ const app = createApp({
     data() {
         return {
             movies: [],
-            genres: []
+            filtered: [],
+            genres: [],
+            search: "",
+            genre: "all"
         }
     },
     beforeCreate() {
@@ -16,10 +19,23 @@ const app = createApp({
             .then(({ movies }) => {
                 this.movies = movies
                 this.genres = [...new Set(movies.map(movie => movie.genres).flat())]
+                this.filtered = this.movies
                 console.log(this.movies);
                 console.log(this.genres);
             })
             .catch(error => console.error(error))
-    }
+    },
+    methods: {
+        filter() {
+            this.filtered = this.movies.filter(movie => movie.title.toLowerCase().includes(this.search.toLowerCase()) && (this.genre == "all" || movie.genres.includes(this.genre)))
+            console.log(this.filtered);
+        }
+    },
+    // computed:{
+    //     filter() {
+    //         this.filtered = this.movies.filter(movie => movie.title.toLowerCase().includes(this.search.toLowerCase()) && (this.genre == "all" || movie.genres.includes(this.genre)))
+    //         console.log(this.filtered);
+    //     }
+    // }
 })
 app.mount("#app")
