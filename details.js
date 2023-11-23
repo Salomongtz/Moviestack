@@ -24,10 +24,6 @@ const app = createApp({
                 this.filtered = this.movies
                 this.movieId = new URLSearchParams(window.location.search).get("id")
                 this.movie = movies.find(movie => movie.id == this.movieId)
-                console.log(this.movies);
-                console.log(this.genres);
-                console.log(this.movieId);
-                console.log(this.movie);
             })
             .catch(error => console.error(error))
     },
