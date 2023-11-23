@@ -28,6 +28,7 @@ const app = createApp({
             localStorage.setItem("favorites", JSON.stringify(this.favorites))
         }, removeFavorite(movieId) {
             this.favorites = this.favorites.filter(movie => movie != movieId)
+            this.filtered = this.movies.filter(movie => this.favorites.includes(movie.id))
             localStorage.setItem("favorites", JSON.stringify(this.favorites))
         },
     },
