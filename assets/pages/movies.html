@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movies - Moviestack</title>
     <link rel="shortcut icon" href="../images/Moviestack_favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../styles/style.css">
 </head>
 
 <body class="w-full min-h-screen flex flex-col">
@@ -59,20 +60,20 @@
             <div class="cards flex flex-wrap gap-6">
                 <template v-if="filtered.length > 0" v-for="movie of filtered">
 
-                    <div class="max-w-sm lg:w-1/4 bg-white rounded-lg overflow-hidden shadow-lg mx-auto relative">
+                    <div class="art max-w-sm lg:w-1/4 bg-white rounded-lg overflow-hidden shadow-lg mx-auto relative">
 
                         <img class="w-full" v-bind:src="'https://moviestack.onrender.com/static/' + movie.image"
                             v-bind:alt="'Image'+movie.title" />
                         <svg v-if="!favorites.includes(movie.id)" fill="black"
                             v-on:click="favorites.includes(movie.id) ? removeFavorite(movie.id) : addFavorite(movie.id)"
-                            class="botoncito p-1.5 bg-gray-300 absolute left-1 top-2 hover:visible hover:bg-gray-400 font-bold h-8 w-8 rounded-full inline-flex justify-center items-center favbtn"
+                            class="botoncito invisible p-1.5 bg-gray-300 absolute left-1 top-2 hover:bg-gray-400 font-bold h-8 w-8 rounded-full inline-flex justify-center items-center favbtn"
                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                             <path data-id="${movie.id}"
                                 d="M12 4.435c-1.989-5.399-12-4.597-12 3.568 0 4.068 3.06 9.481 12 14.997 8.94-5.516 12-10.929 12-14.997 0-8.118-10-8.999-12-3.568z" />
                         </svg>
                         <svg v-else fill="red"
                             v-on:click="favorites.includes(movie.id) ? removeFavorite(movie.id) : addFavorite(movie.id)"
-                            class="botoncito p-1.5 bg-gray-300 absolute left-1 top-2 hover:visible hover:bg-gray-400 font-bold h-8 w-8 rounded-full inline-flex justify-center items-center favbtn"
+                            class="botoncito p-1.5 bg-gray-300 absolute left-1 top-2  hover:bg-gray-400 font-bold h-8 w-8 rounded-full inline-flex justify-center items-center favbtn"
                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                             <path data-id="${movie.id}"
                                 d="M12 4.435c-1.989-5.399-12-4.597-12 3.568 0 4.068 3.06 9.481 12 14.997 8.94-5.516 12-10.929 12-14.997 0-8.118-10-8.999-12-3.568z" />
