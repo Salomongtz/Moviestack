@@ -16,6 +16,8 @@ The Movie Review Web App is a simple and elegant application built using Vue.js 
 
 - **Responsive Design:** Built with responsiveness in mind, the web app ensures a seamless experience on various devices, including desktops, tablets, and smartphones.
 
+- **Favorites:**  Users can easily mark items as favorites and access a dedicated page to view and manage their saved selections.
+
 ## Technologies Used
 
 - **Vue.js:** A progressive JavaScript framework for building user interfaces, making the web app interactive and dynamic.
